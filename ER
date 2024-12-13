@@ -1,0 +1,35 @@
+import javax.swing.JOptionPane;
+public class ArreglosTienda {
+    public static void main (String []args){
+        byte x,y,a;
+        short precio;
+        float ma;
+        byte can[] [] = new byte [6][2];
+        String distribuidor;
+        String Encabezado []= {"No","Distribuidor","Costo","Cantidad","Total"};    
+        for(x=0;x<5;x++){  
+            System.out.print(Encabezado [x] +"\t");   
+        }
+        do{
+            System.out.println();
+            for(x=0;x<6;x++){
+                distribuidor=JOptionPane.showInputDialog("Ingrese el nombre del distribuidor");
+                System.out.print( x+1 + "\t" + distribuidor + "\t" );
+                for(y=0;y<1;y++){
+                    can[x][y]=Byte.parseByte(JOptionPane.showInputDialog("Ingrese la cantidad de sudaderas"));
+                
+                    if(can[x][y]>=10){
+                        precio=150;
+                        ma=precio*can[x][y];
+                        System.out.print(precio + "\t" + can[x][y] + "\t" + "\t" + ma);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "La contidad debe ser mayor a diez");
+                    }
+                }
+                System.out.println();
+            }
+            a=Byte.parseByte(JOptionPane.showInputDialog("ingrese 1 si quiere agrgar mas distribuidores" + " \n " + "Presione 2 para cerrar"));
+        }while(a==1);
+    }
+    
+}
